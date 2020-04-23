@@ -1,0 +1,363 @@
+@charset "UTF-8";
+/*全てのwebページに適用される*/
+html{
+  font-family:sans-serif;
+}
+html *{
+  box-sizing:border-box;
+}
+body{
+  background-color:rgb(211,237,255);
+  /* リストの位置を相対にするためにbodyを基準に */
+  position: relative;
+  /* 余計な余白の削除 */
+  padding: 0;
+  margin: 0;
+
+}
+.wrapper{
+  margin:0 auto;
+  max-width:960px;
+}
+h2{
+  color:#3f5170;
+  font-size:22px;
+  border-bottom:3px dotted #3f5170;
+  margin:20px 0;
+  padding:5
+}
+p{
+  line-height:1.6;
+}
+a:link{
+  color:#d25833;
+}
+a:visited{
+  color:#d25833
+}
+a:hover{
+  color:#e3937a;
+}
+a:active{
+  color:#ff6a3b
+}
+img{
+  max-width:100%;
+  height:auto;
+}
+/* 全てのページに適用　- ヘッダー - */
+.logo{
+  margin:50px 0 40px;
+  line-height:0;
+  text-align:center;
+  margin: 20px auto;
+  width: 500px;
+}
+.nav li{
+  display:inline;
+  list-style-type:none;
+  padding-right:30px;
+}
+.nav ul{
+  margin:0;
+  padding:20px 10px 15px 20px;
+  background-image:url(images/line.png);
+  background-size: 80px;
+  background-repeat:repeat-x;
+}
+.nav a:link{
+  color:rgb(76,83,255);
+  text-decoration:none;
+}
+.nav a:visited{
+  color:rgb(76,83,255);
+  text-decoration:none;
+}
+.nav a:hover{
+  opacity: 0.8;
+  text-decoration:none;
+}
+.nav a:active{
+  color:#5a9bc0;
+  text-decoration:none;
+}
+@media (max-width:767px) {
+  #nav{
+    /* 通常は非表示 */
+    display: none;
+    /* リストを前面に */
+    z-index: 100;
+    /* bodyを基準に相対位置に */
+  }
+}
+/* メニューボタンのまわり */
+#btn{
+  /* 固定 */
+  position: fixed;
+  /* 画面の上側に */
+  z-index: 1000;
+  /* 右上からの座標指定 */
+  top: 20px;
+  right: 20px;
+  /* 丸み */
+  border-radius: 8px;
+  /* メニューボタンからの余白 */
+  padding: 20px;
+  /* 背景色 */
+  background-color: #fff;
+  opacity: 0.8;
+  /* カーソルを指に */
+  cursor: pointer;
+}
+
+/* ハンバーガーメニュー基礎 */
+/* メニューボタン */
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  /* 変化するすべてのプロパティへ適用を0.4秒で */
+  transition: all .4s;
+  box-sizing: border-box;
+}
+.menu-trigger {
+  /* 基準の位置の設定 */
+  position: relative;
+  /* 画面幅の５％の大きさ */
+  width: 45px;
+  height: 45px;
+}
+/* メニューのバー一つ一つの設定 */
+.menu-trigger span {
+  /* 上で設定した基準位置からの相対位置の設定 */
+  position: absolute;
+  /* 左揃え */
+  left: 0;
+  /* .menu-triggerで指定した5vwそのままの幅 */
+  width: 100%;
+  /* 画面幅の１％の高さ(.menu-triggerの20％) */
+  height: 9px;
+  /* バーの色 */
+  background-color: rgb(0,52,165);
+  /* バーの丸み */
+  border-radius: 35%;
+}
+/* 上のバー */
+.menu-trigger span:nth-of-type(1) {
+  /* 上に揃える */
+  top: 0;
+}
+/* ２番目(真ん中)のバー */
+.menu-trigger span:nth-of-type(2) {
+  /* 真ん中(１本のバーと１本分の間隔の後)に配置 */
+  top: 18px;
+}
+/* ３番目(下)のバー */
+.menu-trigger span:nth-of-type(3) {
+  /* 下に揃える */
+  bottom: 0;
+}
+/* 横幅の長いPC用では表示しない */
+@media (min-width:768px) {
+  #btn,.menu-trigger{
+    display: none;
+  }
+}
+/* ハンバーガーメニュー基礎ここまで */
+
+/* ハンバーガーメニュー動作 */
+/* JSでclass.menu-triggerにclass.activeを追加されたときの動き */
+.menu-trigger.active span:nth-of-type(1) {
+  /* −45°回転しながら下に下ろす */
+  /* Safari5で適用されるように */
+  -webkit-transform: translateY(18px) rotate(-45deg);
+  transform: translateY(18px) rotate(-45deg);
+}
+.menu-trigger.active span:nth-of-type(2) {
+  /* 真ん中は消えていく */
+  opacity: 0;
+}
+.menu-trigger.active span:nth-of-type(3) {
+  /* 45°回転しながら上に上がる */
+  /* Safari5で適用されるように */
+  -webkit-transform: translateY(-18px) rotate(45deg);
+  transform: translateY(-18px) rotate(45deg);
+}
+/* ハンバーガーメニュー動作ここまで */
+
+/* 全てのページに適用 - フッター - */
+.footer{
+  background-image:url(images/footer-line.png);
+  background-repeat:no-repeat;
+  background-size: 350px;
+  margin-top:30px;
+  padding:80px 15px 20px;
+  font-size:12px;
+  color:#3f5170
+}
+/* 個別のスタイル */
+/* index.html */
+.keyvisual{
+  margin:15px 0 0;
+  text-align: center;
+}
+.news-item{
+  margin:0;
+}
+.news-item a{
+  color: rgb(76,83,255);
+}
+.news-item a:hover{
+  opacity: 0.8;
+}
+/* about.html */
+.shop-photo{
+  float:left;
+  margin: 20px;
+  width: 650px;
+  height: 455px;
+}
+@media (max-width:767px) {
+  .shop-photo{
+    margin: 0;
+    width: 500px;
+    height: 350px;
+  }
+}
+.shop-text{
+  font-size: 20px;
+}
+.clear{
+  clear:both;
+}
+/* テーブル */
+.info{
+  border-collapse:collapse;
+  margin: 20px;
+}
+.info th,.info td{
+  padding:8px;
+  border:1px solid #bec2c7;
+  text-align:left;
+}
+.info th{
+  background-color:#dde2ea;
+  width:90px;
+  color:#3f5170;
+  vertical-align:top;
+}
+.info td{
+  background-color: rgb(235,250,255);
+}
+/* menu.html */
+.menu-item{
+  display:flex;
+  border-bottom:1px dashed #bec2c7;
+  padding:20px 8px;
+}
+.menu-photo{
+  margin-right:16px;
+  flex:0 1 auto;
+  cursor: pointer;
+}
+.menu-photo img{
+  height: 400px;
+}
+.menu-text{
+  flex:0 0 336px;
+}
+.hide-image{
+  display: flex;
+  position: fixed;
+  top: 20vh;
+  left: 10vw;
+  display: none;
+  z-index: 2000;
+}
+.fullcolor.active{
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 150vh;
+  z-index: 1500;
+  background-color: rgba(0,0,0,0.7);
+}
+.hide-image img{
+  width: 40vw;
+  height: 40vw;
+  flex: 1;
+}
+.hide-image .bang-k{
+  width: 20vw;
+}
+.hide-image .sleepy-k{
+  height: 15vw;
+}
+/* contact.html */
+form div{
+  padding:12px;
+  border-bottom:1px dashed #bec2c7
+}
+select{
+  width:30em;
+}
+input[name="subject"]{
+  width:30em;
+}
+textarea{
+  width:30em;
+  height:6em;
+}
+input[type="submit"]{
+  margin:20px 0;
+  width:30em;
+}
+/* スマートフォン向けCSS */
+@media(max-width:767px){
+  /* 全体 - ナビゲーション */
+  .wrapper{
+    margin:0 8px;
+  }
+  .logo{
+    margin:30px 0;
+  }
+  .logo img{
+    width:200px;
+  }
+  .nav{
+    background-color:rgb(157,193,255);
+  }
+  .nav li{
+    display:block;
+  }
+  /* menu.html - 横並び解除 */
+  .menu-item{
+    display:block;
+  }
+  .menu-photo{
+    margin-right:0;
+    width:100%;
+    text-align: center;
+  }
+  .menu-text{
+    width:100%;
+  }
+  /* about.html - 画像のパディングを調整 */
+  .shop-photo{
+    padding-right:0;
+    width:100%;
+  }
+  /* contact.html - フォーム */
+  select{
+    width:100%;
+  }
+  input[name="subject"]{
+    width:100%;
+  }
+  textarea{
+    width:100%;
+  }
+  input[type="submit"]{
+    margin:20px 0;
+    width:100%;
+  }
+}
