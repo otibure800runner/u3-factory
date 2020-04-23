@@ -14,11 +14,6 @@ body{
   padding: 0;
   margin: 0;
 }
-@media (max-width-767px) {
-  body{
-    width: 100vw;
-  }
-}
 .wrapper{
   margin:0 auto;
   max-width:960px;
@@ -56,9 +51,6 @@ img{
   text-align:center;
   margin: 20px auto;
   width: 500px;
-}
-@media(max-width:767px){
-  margin-left:20vw;
 }
 .nav li{
   display:inline;
@@ -254,6 +246,15 @@ img{
 }
 .info td{
   background-color: rgb(235,250,255);
+}
+@media(max-width:767px){
+  .info iframe{
+    width: 80vw;
+  }
+  .info{
+    margin: 0;
+    width: 100vw;
+  }
 }
 /* menu.html */
 .menu-item{
