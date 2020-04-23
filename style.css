@@ -92,7 +92,7 @@ img{
 /* メニューボタンのまわり */
 #btn{
   /* 固定 */
-  position: fixed;
+  position: absolute;
   /* 画面の上側に */
   z-index: 1000;
   /* 右上からの座標指定 */
@@ -249,7 +249,7 @@ img{
 }
 @media(max-width:767px){
   .info iframe{
-    width: 80vw;
+    width: 95vw;
   }
   .info{
     margin: 0;
