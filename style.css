@@ -14,8 +14,11 @@ body{
   padding: 0;
   margin: 0;
 }
+.body-wrap{
+  overflow: hidden;
+}
 @media (max-width-767px) {
-  body{
+  body *{
     max-width: 100vw;
   }
 }
@@ -97,7 +100,7 @@ img{
 /* メニューボタンのまわり */
 #btn{
   /* 固定 */
-  position: fixed;
+  position: absolute;
   /* 画面の上側に */
   z-index: 1000;
   /* 右上からの座標指定 */
@@ -113,7 +116,11 @@ img{
   /* カーソルを指に */
   cursor: pointer;
 }
-
+@media (max-width:767px) {
+  #btn{
+    padding: 10px;
+  }
+}
 /* ハンバーガーメニュー基礎 */
 /* メニューボタン */
 .menu-trigger,
@@ -160,6 +167,23 @@ img{
   /* 下に揃える */
   bottom: 0;
 }
+@media (max-width:767px) {
+  .menu-trigger {
+    width: 25px;
+    height: 25px;
+  }
+  /* メニューのバー一つ一つの設定 */
+  .menu-trigger span {
+    /* 画面幅の１％の高さ(.menu-triggerの20％) */
+    height: 5px;
+  }
+  /* 上のバー */
+  /* ２番目(真ん中)のバー */
+  .menu-trigger span:nth-of-type(2) {
+    /* 真ん中(１本のバーと１本分の間隔の後)に配置 */
+    top: 10px;
+  }
+}
 /* 横幅の長いPC用では表示しない */
 @media (min-width:768px) {
   #btn,.menu-trigger{
@@ -185,6 +209,20 @@ img{
   /* Safari5で適用されるように */
   -webkit-transform: translateY(-18px) rotate(45deg);
   transform: translateY(-18px) rotate(45deg);
+}
+@media (max-width:767px) {
+  .menu-trigger.active span:nth-of-type(1) {
+    /* −45°回転しながら下に下ろす */
+    /* Safari5で適用されるように */
+    -webkit-transform: translateY(10px) rotate(-45deg);
+    transform: translateY(10px) rotate(-45deg);
+  }
+  .menu-trigger.active span:nth-of-type(3) {
+    /* 45°回転しながら上に上がる */
+    /* Safari5で適用されるように */
+    -webkit-transform: translateY(-08px) rotate(45deg);
+    transform: translateY(-10px) rotate(45deg);
+  }
 }
 /* ハンバーガーメニュー動作ここまで */
 
@@ -251,6 +289,15 @@ img{
 }
 .info td{
   background-color: rgb(235,250,255);
+}
+@media (max-width:767px){
+  .info{
+    margin: 0;
+    width:100vw
+  }
+  .info iframe{
+    width: 95vw;
+  }
 }
 /* menu.html */
 .menu-item{
@@ -323,9 +370,11 @@ input[type="submit"]{
   }
   .logo{
     margin:30px 0;
+    margin-left: -20vw;
   }
   .logo img{
     width:200px;
+    margin-left: 0;
   }
   .nav{
     background-color:rgb(157,193,255);
