@@ -60,6 +60,9 @@ img{
   margin: 20px auto;
   width: 500px;
 }
+.logo img:hover{
+  opacity: 0.7;
+}
 .nav li{
   display:inline;
   list-style-type:none;
@@ -266,7 +269,13 @@ img{
   }
 }
 .shop-text{
+  margin-top: 40px;
   font-size: 20px;
+}
+@media (max-width:767px) {
+  .shop-text{
+    margin-top: 10px;
+  }
 }
 .clear{
   clear:both;
@@ -318,6 +327,7 @@ img{
 }
 .hide-image{
   display: flex;
+  flex-wrap: wrap;
   position: fixed;
   top: 20vh;
   left: 10vw;
@@ -343,6 +353,23 @@ img{
 .hide-image .sleepy-k{
   height: 15vw;
 }
+@media (max-width:767px) {
+  .hide-image{
+    top: 5vh;
+    left: 5vw;
+  }
+  .hide-image img{
+    width: 80vw;
+    height: 80vw;
+  }
+  .hide-image .bang-k{
+    width: 40vw;
+  }
+  .hide-image .sleepy-k{
+    height: 30vw;
+  }
+}
+
 /* contact.html */
 form div{
   padding:12px;
